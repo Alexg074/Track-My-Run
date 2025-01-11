@@ -42,10 +42,10 @@ def save_workout():
     workout = {
         "user_id": user_id, # Retrieve user ID from JWT token
         "workout_name": workout_name,
-        "route_id": ObjectId(data["route_id"]),  # Store route ID together with its coordinates
+        "route_id": ObjectId(data["route_id"]),
         "coordinates": coordinates,
         "date": data.get("date", romania_time_str), # YYYY-MM-DD HH:MM
-        "distance": data["distance"],  # kilometers // TODO: CALCULEZ DE PE KAMOOT
+        "distance": data["distance"],  # kilometers
         "duration": {
             "minutes": duration["minutes"],
             "seconds": duration["seconds"]
