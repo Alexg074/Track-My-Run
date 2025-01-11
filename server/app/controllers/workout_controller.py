@@ -36,4 +36,34 @@ def save_workout():
     
     # Default workout name if not provided
     romania_time_str = romania_time.strftime("%Y-%m-%d %H:%M")
-    default_workout_name = f"Workout {romania_time.strftime('%Y-%m-%d')} at {romania_time.strft
+    default_workout_name = f"Workout {romania_time.strftime('%Y-%m-%d')} at {romania_time.strftime('%H:%M')}"
+    workout_name = data.get("workout_name", default_workout_name)
+
+    workout = {
+        "user_id": user_id, # Retrieve user ID from JWT token
+        "workout_name": workout_name,
+        "route_id": ObjectId(data["route_id"]),  # Store route ID together with its coordinates
+        "coordinates": coordinates,
+        "date": data.get("date", romania_time_str), # YYYY-MM-DD HH:MM
+        "distance": data["distance"],  # kilometers // TODO: CALCULEZ DE PE KAMOOT
+        "duration": {
+            "minutes": duration["minutes"],
+            "seconds": duration["seconds"]
+        }
+    }
+
+    workouts_collection.insert_one(workout)
+    return jsonify({"message": "Workout saved successfully"}), 201
+
+@jwt_required()
+def fetch_user_workouts():
+    user_id = get_jwt_identity()
+    workouts = list(workouts_collection.find({"user_id": user_id}))
+    
+    # Serialize ObjectId
+    for workout in workouts:
+        workout["_id"] = str(workout["_id"])
+        workout["route_id"] = str(workout["route_id"])
+
+    return jsonify({"workouts": workouts}), 200
+
