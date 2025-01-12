@@ -2,7 +2,7 @@ from flask import request, jsonify
 from services.mongo_service import workouts_collection, routes_collection
 from flask_jwt_extended import get_jwt_identity, jwt_required
 from bson import ObjectId
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 import pytz
 
 @jwt_required()
@@ -14,7 +14,7 @@ def save_workout():
     if not data.get("route_id") or not data.get("duration"):
         return jsonify({"error": "route_id and duration are required"}), 400
 
-    # Validate duration format (minutes and seconds)
+    # Validate duration format
     duration = data["duration"]
     if not isinstance(duration, dict) or "minutes" not in duration or "seconds" not in duration:
         return jsonify({"error": "Duration must include 'minutes' and 'seconds' fields"}), 400
@@ -66,4 +66,4 @@ def fetch_user_workouts():
         workout["route_id"] = str(workout["route_id"])
 
     return jsonify({"workouts": workouts}), 200
-
+    
