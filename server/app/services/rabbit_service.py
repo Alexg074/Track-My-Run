@@ -94,4 +94,4 @@ def start_group_consumer(username, callback):
             print(f"Error starting consumer for {username}: {e}")
 
     # Run the consumer in a separate thread to keep it non-blocking
-    threading.Thread(target=listen_to_messages, 
+    threading.Thread(target=listen_to_messages, daemon=True).start()
