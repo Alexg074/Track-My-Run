@@ -4,7 +4,6 @@ from services.mongo_service import users_collection
 from werkzeug.security import generate_password_hash, check_password_hash
 from bson.objectid import ObjectId
 
-# Register User
 def register_user():
     try:
         data = request.json
@@ -31,7 +30,6 @@ def register_user():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Login User
 def login_user():
     try:
         data = request.json
@@ -45,16 +43,9 @@ def login_user():
             return jsonify({"error": "Invalid email or password"}), 401
 
         # Generate JWT token at login
-        # token = create_access_token(identity={"id": str(user['_id']), "email": user['email']})
         token = create_access_token(identity=str(user['_id']), additional_claims={"email": user['email']})
         
         return jsonify({"token": token, "username": user['username']}), 200
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-# TODO - rute
-# adaugare ruta in mongo ca json
-# intorc toate rutele din jurul unui pct - lat long
-# returnez array de rute din apropiere
-
