@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "675fec293374ae9faa23ef42"
+  },
+  "email": "alex@gmail.com",
+  "password": "scrypt:32768:8:1$Dxwdv8Jm17gi6hE4$33a8f9ab994b6eaf55125fd7f0bf8e423de0ff8942b30c2b0ebcb9f66ed2db718896a2798211d2f61b160b910948bb529a8247dea2cbf7abc1f71d62d62d9508",
+  "username": "alex"
+},
+{
+  "_id": {
+    "$oid": "67601d7771d2789ea0742b7d"
+  },
+  "email": "user1@gmail.com",
+  "password": "scrypt:32768:8:1$EtVVxVaoCjjsLcu7$7b72a494971e62fc630999a8afcb717fb2ba11728f4063f925a07f77f65ef7470d8365b232363218a178dfd1a300a2ae7594085025a49b629d4667e73fa283e7",
+  "username": "user1"
+},
+{
+  "_id": {
+    "$oid": "677ed407a11c63ccb1bf60d2"
+  },
+  "email": "coco@gmail.com",
+  "password": "scrypt:32768:8:1$SyXp7HqHXaWTRhg8$d8ea2c3d4bbff7a20f185a0621dd220ad35987666ffdc6387f0552b82eec479ab2f5bf548b68ee1f2063358e0e16e1e9ba918f344d1fb5fdd71413506aa3d528",
+  "username": "coco"
+},
+{
+  "_id": {
+    "$oid": "677fa15eb26dbde3b1f7b601"
+  },
+  "email": "user2@gmail.com",
+  "password": "scrypt:32768:8:1$ZRo5u9QHIIWerolT$15d0e1125d2a6b819bd237fbc16582a9e5c785ab375c07870316fb9f2dfbacec9989cc25f5d42ad5665bc6f918044a4c13fcfae3a326233d8c50c6659e79d1c2",
+  "username": "user2"
+}]

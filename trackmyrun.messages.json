@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "6783b8e141c482c6050fffd9"
+  },
+  "username": "675fec293374ae9faa23ef42",
+  "message": "Anyone running around Arena Nationala?",
+  "timestamp": {
+    "$date": "2025-01-12T12:43:13.792Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6783bccd41c482c6050fffda"
+  },
+  "username": "675fec293374ae9faa23ef42",
+  "message": "See you on track!",
+  "timestamp": {
+    "$date": "2025-01-12T12:59:57.533Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6783bf1b41c482c6050fffdb"
+  },
+  "username": "67601d7771d2789ea0742b7d",
+  "message": "Where do we meet?",
+  "timestamp": {
+    "$date": "2025-01-12T13:09:47.752Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6783bf4a41c482c6050fffdc"
+  },
+  "username": "675fec293374ae9faa23ef42",
+  "message": "Arena Nationala, 18:00.",
+  "timestamp": {
+    "$date": "2025-01-12T13:10:34.743Z"
+  }
+}]
