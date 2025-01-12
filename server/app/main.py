@@ -3,10 +3,11 @@ from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
 from dotenv import load_dotenv
-from pymongo import MongoClient
 from routes.auth_routes import auth_blueprint
 from routes.route_routes import route_blueprint
 from routes.workout_routes import workout_blueprint
+from routes.chat_routes import chat_blueprint
+from services.mongo_service import routes_collection # already defined in mongo_service.py
 
 # Load environment variables
 load_dotenv()
@@ -21,12 +22,6 @@ app = Flask(__name__)
 app.config["JWT_SECRET_KEY"] = os.getenv('JWT_SECRET_KEY', 'your_secret_key')
 JWTManager(app)
 CORS(app)
-
-# MongoDB connection
-MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
-client = MongoClient(MONGO_URI)
-db = client["trackmyrun"]
-routes_collection = db["routes"]
 
 def preprocess_routes():
     # Drop existing indexes to avoid GeoJSON validation errors
@@ -82,6 +77,7 @@ print("Geospatial index created on geometry field.")
 app.register_blueprint(auth_blueprint, url_prefix='/api/auth')
 app.register_blueprint(route_blueprint, url_prefix='/api/routes')
 app.register_blueprint(workout_blueprint, url_prefix='/api/workouts')
+app.register_blueprint(chat_blueprint, url_prefix='/api/chat')
 
 # Root route
 @app.route('/')
@@ -90,3 +86,4 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+    
